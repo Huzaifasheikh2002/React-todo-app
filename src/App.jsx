@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Heading from './Class-practice';
 import { useState } from 'react';
+import AlertComponet from './Components/Alert-Componets';
+import Todo from './Components/Todo';
 
 
 const App = ()=> {
@@ -20,7 +22,9 @@ const App = ()=> {
 //     console.log(data);
 //     setChildData(data)
 //     };
-    const [bool ,setBool]=useState("")
+    // const [bool ,setBool]=useState("")
+// const[darkMode,setDarkMode ]=useState(false);
+
   return(<>
   {/* {AppchildData}
   <Heading text="heading-1" name={name} getData={getData}/>
@@ -30,12 +34,23 @@ const App = ()=> {
   {/* <Heading bool ={true}/> */}
   {/* End condition rendering */}
 
-{
+{/* {
 bool ==="nadeem" ? <h1>papa</h1>
 : bool=== "hamza" ?<h1>bhai</h1>
 : <h1>USER</h1>
-}
+} */}
 
+
+{/* <div className='box1' style={{backgroundColor:darkMode ? "#000":"#ffff"}}> 
+  <button onClick={()=>{
+    setDarkMode(!darkMode);
+  }}>
+    {darkMode ?"White": "DARK"}
+  </button>
+  <button className='btn btn-primary'>Bootstrap</button>
+
+</div> */}
+<Todo/>
 </>
 );
 };
