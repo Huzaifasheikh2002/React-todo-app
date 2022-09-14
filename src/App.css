@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,8 +35,11 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 .box1{
   min-height: 100vh;
-  background-color: #37393e;
+  background-color: #003489;
 }
+/* .update-btn{
+background-color: ;
+} */
