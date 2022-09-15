@@ -40,6 +40,11 @@
   min-height: 100vh;
   background-color: #003489;
 }
+
+.disabled {
+  pointer-events: none;
+}
+
 /* .update-btn{
 background-color: ;
 } */

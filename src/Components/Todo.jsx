@@ -13,9 +13,10 @@ const Todo =()=>{
         
  // console.log(indexNumber,"indexNumber");
  const addTodo=()=>{
-  if(!inputValue){
-
-  }else{
+  if(!inputValue);
+  else if (inputValue.length >20){
+   
+   }else{
     todoItem.push(inputValue);
     setTodoItem([...todoItem]);
     setInputValue("");
@@ -77,7 +78,6 @@ placeholder="Enter todo"value={inputValue} onChange={(e)=> setInputValue(e.targe
                 autoFocus
     
               />
-              <GrUpdate size={30} className="update-btn"/>
               <button
                 onClick={() => updateTodo(index)}
                 className="update-btn"
