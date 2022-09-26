@@ -4,6 +4,7 @@ import Heading from './Class-practice';
 import { useState } from 'react';
 import AlertComponet from './Components/Alert-Componets';
 import Todo from './Components/Todo';
+// import Pract from './Components/Pract';
 
 
 const App = ()=> {
@@ -51,6 +52,7 @@ bool ==="nadeem" ? <h1>papa</h1>
 
 </div> */}
 <Todo/>
+{/* <Pract/> */}
 </>
 );
 };
