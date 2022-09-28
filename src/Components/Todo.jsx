@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FcEditImage, FcFullTrash } from "react-icons/fc"
+import { AiOutlinePlus} from "react-icons/ai"
+
 import {db} from "../firebase"
-import { collection, addDoc ,getDocs} from "firebase/firestore"; 
+import { collection, addDoc ,getDocs,doc,updateDoc, deleteDoc } from "firebase/firestore"; 
 
 
 const Todo = () => {
@@ -10,6 +12,7 @@ const Todo = () => {
   const [indexNumber, setIndexNumber,] = useState("")
   const [updateInput, setUpdateInput] = useState("");
   const [event, setevent] = useState("all");
+  const [refresh, setRefresh] = useState(false)
 
 // CREATE COLLECTION
 const dbCollection = collection(db,"todoCollection")
@@ -27,11 +30,11 @@ async function getData(){
     console.log(`${doc.id} => ${doc.data()}`);
   });
   setTodoItem([...arr])
-console.log(arr,"a");
+// console.log(arr,"a");
 }
 getData();
 
-},[]);
+},[refresh]);
   // console.log(db,"dbcollection");
   const addTodo = async () => {
 
@@ -40,12 +43,14 @@ getData();
     };
    const AddTodo = await addDoc(dbCollection,obj);  //1 argument kya lekr jaon. 2 argument kis form m lekr jaon.. 
 console.log(addTodo,"addTodo");
+setRefresh(!refresh)
+
     // OLD
     if (!inputValue);
     else if (inputValue.length > 20) {
       
     } else {
-      todoItem.push(inputValue);
+      todoItem.push({value:inputValue});
       setTodoItem([...todoItem]);
       setInputValue("");
     }
@@ -61,23 +66,35 @@ console.log(addTodo,"addTodo");
   // 
 
   //    delete 1 Todo list 
-  const deleteTodo = (index) => {
+  const deleteTodo = async(index) => {
+    const id = todoItem[index].id;
+    const dbRef =doc(db,"todoCollection",id)
+    await deleteDoc(dbRef);
     // console.log("delete todo", index);
     // splice 1st argument khn sy delete krna hai or 2 argument kitni value delete krni hai
     todoItem.splice(index, 1);
-    setTodoItem([...todoItem]);
+    setTodoItem([...todoItem]); 
   };
   //   
   //     // updatetodo
-  const updateTodo = (index) => {
+  const updateTodo = async (index) => {
+
     //update firebase collection
-    todoItem.splice(index, 1, updateInput);
+    const id =todoItem[index].id;
+const dbRef=doc(db,"todoCollection",id)
+  await updateDoc(dbRef, {
+    todoValue:updateInput,
+  })
+  if(!updateInput);
+    else if (updateInput.length > 20) {
+  }else{ 
+    todoItem.splice(index, 1, {value:updateInput,id});
     setTodoItem([...todoItem]);
     setIndexNumber("");
     setevent("all")
     setUpdateInput("");
 
-  };
+  }};
   //      
   // edit
   const editTodo = (index) => {
@@ -86,11 +103,18 @@ console.log(addTodo,"addTodo");
   };
   //      
   return (
-    <section className="bg-dark text-white text-center p-4">
+    <section className="Main-Container">
       <h1>Todo App List</h1>
       <div className="mt-5 px-4">
-        <input type="text" autoFocus className="form-group form-control"
-          placeholder="Enter todo" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <div className="inputDiv">
+
+      <input type="text" className="inputFeild"
+          placeholder="Enter todo" value={inputValue} onChange={(e) => setInputValue(e.target.value)} 
+          />
+              {/* <button><i class="fa-solid fa-plus"></i></button> */}
+     <AiOutlinePlus className="icons"/>
+        </div>
+
         <div className="mt-5 d-flex gap-2 ">
           <button className="btn btn-primary" style={{ pointerEvents: event }} onClick={addTodo}>Add Todo</button>
           <button onClick={deleteAll} className="btn btn-danger" style={{ pointerEvents: event }} >Delete All</button>
@@ -116,7 +140,7 @@ console.log(addTodo,"addTodo");
                   <button className="btn btn-success" onClick={() => updateTodo(index)}>UPDATE</button></div>
 
               ) : (
-                <div className="alert alert-primary d-flex justify-content-between">
+                <div className= " alertTodo alert alert-primary d-flex justify-content-between f-10">
                   {todo.value}
                   <div className="d-flex gap-2" >
                     <FcFullTrash
