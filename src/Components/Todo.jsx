@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FcEditImage, FcFullTrash } from "react-icons/fc"
 import { AiOutlinePlus} from "react-icons/ai"
+// import {GrUpdate} from "react-icons/gr"
+import Update from '../Components/Assets/updateIcon.png' 
 
 import {db} from "../firebase"
 import { collection, addDoc ,getDocs,doc,updateDoc, deleteDoc } from "firebase/firestore"; 
-
 
 const Todo = () => {
   const [todoItem, setTodoItem] = useState([]);
@@ -112,12 +113,13 @@ const dbRef=doc(db,"todoCollection",id)
           placeholder="Enter todo" value={inputValue} onChange={(e) => setInputValue(e.target.value)} 
           />
               {/* <button><i class="fa-solid fa-plus"></i></button> */}
-     <AiOutlinePlus className="icons"/>
+              
+<AiOutlinePlus className="todoBtn" style={{ pointerEvents: event }} onClick={addTodo}/>
         </div>
 
         <div className="mt-5 d-flex gap-2 ">
-          <button className="btn btn-primary" style={{ pointerEvents: event }} onClick={addTodo}>Add Todo</button>
-          <button onClick={deleteAll} className="btn btn-danger" style={{ pointerEvents: event }} >Delete All</button>
+          {/* <button className="btn btn-primary" Add Todo</button> */}
+          {/* <button onClick={deleteAll} className="btn btn-danger" style={{ pointerEvents: event }} >Delete All</button> */}
         </div>
       </div>
 
@@ -128,16 +130,23 @@ const dbRef=doc(db,"todoCollection",id)
 
             <React.Fragment key={index}>
               {indexNumber === index ? (
-                <div>
+                <div className="inputDiv">
                   <input
                     onChange={(e) => setUpdateInput(e.target.value)}
-                    className="form-control form-group my-3"
+                    className="inputFeild"
                     value={updateInput}
                     autoFocus
 
                   />
+    <img src={Update} />     
+<div className="updateBtn"   onClick={() =>  updateTodo(index)} 
 
-                  <button className="btn btn-success" onClick={() => updateTodo(index)}>UPDATE</button></div>
+
+/>
+                  {/* <button  UPDATE</button> */}
+                  
+        
+                  </div>
 
               ) : (
                 <div className= " alertTodo alert alert-primary d-flex justify-content-between f-10">

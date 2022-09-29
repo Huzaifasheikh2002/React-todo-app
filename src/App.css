@@ -6,13 +6,13 @@
   
 }
 body{
-  background-image: url(./Components/Assests/Background.jpg);
+  background-image: url(./Assets/./Background.jpg);
   background-size: cover;
 }
-.box1{
+/* .box1{
   min-height: 100vh;
   background-color: #003489;
-}
+} */
 
 .Main-Container{
   background: rgba(255, 255, 255, 0.191);
@@ -37,18 +37,17 @@ background-color: ;
   display: flex;
   height: 45px;
 }
-.icons{
-  width: 45px;
-  height: 45px;
+.todoBtn{
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
   color: #fff;
-  margin-bottom: 10px;
   margin-left: 10px;
   background: #000eccaf;
 
 }
 .inputFeild{
-  width: 85%;
+  width: 100%;
   height: 50px;
   outline:none;
   border-radius: 6px;
@@ -56,4 +55,20 @@ background-color: ;
   font-size: 20px;
   padding-left: 15px;
   transition: all 0.3s ease;
+}
+
+.Main-Container h1{
+  padding-left: 24px;
+  color: rgba(0, 0, 0, 0.563)
+  
+}
+.form-control{
+  width: 100%;
+  height: 60px;
+}
+.updateBtn{
+  width: 40px;
+  height: 70px;
+
+  margin-left: 10px;
 }
