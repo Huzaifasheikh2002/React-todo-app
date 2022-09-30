@@ -6,7 +6,7 @@
   
 }
 body{
-  background-image: url(./Assets/./Background.jpg);
+  background-image: url(./Components/Assets/Background.jpg);
   background-size: cover;
 }
 /* .box1{
@@ -16,7 +16,7 @@ body{
 
 .Main-Container{
   background: rgba(255, 255, 255, 0.191);
-  max-width: 900px;
+  max-width: 800px;
   width: 100%;
   margin: 120px auto;
   padding: 25px;
@@ -29,46 +29,49 @@ background-color: ;
 
 .alertTodo{
   font-size: 23px;
-  
+  margin-top: 40px;
 }
 .Main-Container .inputDiv{
   margin: 20px 0;
   width: 100%;
   display: flex;
   height: 45px;
+
 }
 .todoBtn{
-  width: 50px;
+  width: 60px;
   height: 50px;
   border-radius: 6px;
   color: #fff;
   margin-left: 10px;
-  background: #000eccaf;
-
+  background: #1b2289dc;
+  margin-top: 5px;
+  cursor: pointer;
 }
 .inputFeild{
   width: 100%;
-  height: 50px;
+  height: 70px;
   outline:none;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 20px;
   padding-left: 15px;
-  transition: all 0.3s ease;
 }
-
 .Main-Container h1{
   padding-left: 24px;
-  color: rgba(0, 0, 0, 0.563)
-  
+  color: rgba(0, 0, 0, 0.563) 
 }
 .form-control{
   width: 100%;
   height: 60px;
 }
 .updateBtn{
-  width: 40px;
-  height: 70px;
-
+width: 70px;
+height: 60px;
   margin-left: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.icon{
+ cursor: pointer;
 }

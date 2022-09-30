@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { FcEditImage, FcFullTrash } from "react-icons/fc"
+// import {FcFullTrash } from "react-icons/fc"
 import { AiOutlinePlus} from "react-icons/ai"
-// import {GrUpdate} from "react-icons/gr"
+import {FaEdit ,FaTrashAlt} from "react-icons/fa"
 import Update from '../Components/Assets/updateIcon.png' 
 
 import {db} from "../firebase"
@@ -43,26 +43,23 @@ getData();
       todoValue:inputValue,
     };
    const AddTodo = await addDoc(dbCollection,obj);  //1 argument kya lekr jaon. 2 argument kis form m lekr jaon.. 
-console.log(addTodo,"addTodo");
+// console.log(addTodo,"addTodo");
 setRefresh(!refresh)
 
     // OLD
-    if (!inputValue);
+    if(!inputValue);
     else if (inputValue.length > 20) {
-      
-    } else {
+    }else{ 
       todoItem.push({value:inputValue});
       setTodoItem([...todoItem]);
       setInputValue("");
-    }
-
-  };
+    }};
   // console.log(inputValue,"inputValueee");
 
   // delete All list
-  const deleteAll = () => {
-    setTodoItem([]);
-  };
+  // const deleteAll = () => {
+  //   setTodoItem([]);
+  // };
 
   // 
 
@@ -87,8 +84,7 @@ const dbRef=doc(db,"todoCollection",id)
     todoValue:updateInput,
   })
   if(!updateInput);
-    else if (updateInput.length > 20) {
-  }else{ 
+  else{ 
     todoItem.splice(index, 1, {value:updateInput,id});
     setTodoItem([...todoItem]);
     setIndexNumber("");
@@ -138,28 +134,25 @@ const dbRef=doc(db,"todoCollection",id)
                     autoFocus
 
                   />
-    <img src={Update} />     
-<div className="updateBtn"   onClick={() =>  updateTodo(index)} 
 
-
-/>
+  <img src={Update} className="updateBtn" onClick={()=> updateTodo(index)}/>
                   {/* <button  UPDATE</button> */}
                   
         
                   </div>
 
               ) : (
-                <div className= " alertTodo alert alert-primary d-flex justify-content-between f-10">
+                <div className= "alertTodo alert alert-primary d-flex justify-content-between f-10">
                   {todo.value}
                   <div className="d-flex gap-2" >
-                    <FcFullTrash
+                    <FaTrashAlt
 
                       className="icon"
                       onClick={() => deleteTodo(index)}
                       size={45}
                     />
-                    <FcEditImage
-
+                    <FaEdit
+                      className="icon"
                       onClick={
                         () => {
                           setIndexNumber(index);
