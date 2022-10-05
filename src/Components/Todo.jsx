@@ -13,6 +13,7 @@ const Todo = () => {
   const [indexNumber, setIndexNumber,] = useState("")
   const [updateInput, setUpdateInput] = useState("");
   const [event, setevent] = useState("all");
+  const [borderval, setborderval] = useState("none")
   const [refresh, setRefresh] = useState(false)
 
 // CREATE COLLECTION
@@ -38,22 +39,20 @@ getData();
 },[refresh]);
   // console.log(db,"dbcollection");
   const addTodo = async () => {
-
-    const obj={  
-      todoValue:inputValue,
-    };
-   const AddTodo = await addDoc(dbCollection,obj);  //1 argument kya lekr jaon. 2 argument kis form m lekr jaon.. 
-// console.log(addTodo,"addTodo");
-setRefresh(!refresh)
-
-    // OLD
-    if(!inputValue);
-    else if (inputValue.length > 20) {
-    }else{ 
-      todoItem.push({value:inputValue});
-      setTodoItem([...todoItem]);
-      setInputValue("");
-    }};
+    if(!inputValue){
+    setborderval("1px solid red")
+    }
+    else{
+      const obj={  
+        todoValue:inputValue,
+      };
+      const docRef = await addDoc(dbCollection,obj)
+      setRefresh(!refresh)      
+      // OLD
+        todoItem.push({value:inputValue});
+        setTodoItem([...todoItem]);
+        setInputValue("");
+      }};
   // console.log(inputValue,"inputValueee");
 
   // delete All list
@@ -105,7 +104,7 @@ const dbRef=doc(db,"todoCollection",id)
       <div className="mt-5 px-4">
         <div className="inputDiv">
 
-      <input type="text" className="inputFeild"
+      <input type="text" className="inputFeild" style={{border : borderval}}
           placeholder="Enter todo" value={inputValue} onChange={(e) => setInputValue(e.target.value)} 
           />
               {/* <button><i class="fa-solid fa-plus"></i></button> */}

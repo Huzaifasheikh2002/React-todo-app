@@ -4,6 +4,10 @@ import Heading from './Class-practice';
 import { useState } from 'react';
 import AlertComponet from './Components/Alert-Componets';
 import Todo from './Components/Todo';
+import Home from "./Screens/Home"
+import Login from './Screens/Login';
+import About from './Screens/About';
+import { Route, Routes } from 'react-router-dom';
 // import Pract from './Components/Pract';
 // import UpdateButton from "./Assets"
 
@@ -52,7 +56,17 @@ bool ==="nadeem" ? <h1>papa</h1>
   <button className='btn btn-primary'>Bootstrap</button>
 
 </div> */}
-<Todo/>
+{/* <Todo/> */}
+<Routes>
+
+  <Route path='/' element={<Home/>}></Route>
+  <Route path='/login' element={<Login/>}></Route>
+  <Route path='/about' element={<About/>}></Route>
+</Routes>
+{/* <Login/>
+<About/> */}
+
+
 {/* <Pract/> */}
 </>
 );
