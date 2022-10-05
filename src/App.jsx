@@ -59,7 +59,7 @@ bool ==="nadeem" ? <h1>papa</h1>
 {/* <Todo/> */}
 <Routes>
 
-  <Route path='/' element={<Home/>}></Route>
+  <Route path='/todo' element={<Todo/>}></Route>
   <Route path='/login' element={<Login/>}></Route>
   <Route path='/about' element={<About/>}></Route>
 </Routes>

@@ -1,13 +1,14 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+
+import { Link, NavLink } from 'react-router-dom';
+
+
+
 
 function NavBarComp() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      {/* <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -24,7 +25,32 @@ function NavBarComp() {
             </Nav.Link>
           </Nav>
         </Container>
-      </Navbar>
+      </Navbar> */}
+      <section className='navbarApp'>
+        <div>
+          <h3>Todo App List </h3>
+        </div>
+        <div>
+          <ul>
+  <li><NavLink className={({isActive})=>{
+      return isActive ? "activeLink" : "";
+            }}to="/">Home </NavLink> </li>
+
+  <li><NavLink className={({isActive})=>{
+      return isActive ? "activeLink" : "";
+          }} to ="/about">About</NavLink></li>
+            
+            {/*  */}
+  <li><NavLink className={({isActive})=>{
+      return isActive ? "activeLink" : "";
+    }} to="/login">Login</NavLink></li>
+
+
+
+
+          </ul>
+        </div>
+      </section>
     
     </>
   );
