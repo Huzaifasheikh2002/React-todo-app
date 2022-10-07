@@ -8,6 +8,8 @@
 body{
   background-image: url(./Components/Assets/Background.jpg);
   background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
 }
 /* .box1{
   min-height: 100vh;
@@ -74,4 +76,7 @@ height: 60px;
 }
 .icon{
  cursor: pointer;
+}
+.container{
+  color: white;
 }
