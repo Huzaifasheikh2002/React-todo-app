@@ -8,6 +8,7 @@ import Home from "./Screens/Home"
 import Login from './Screens/Login';
 import About from './Screens/About';
 import { Route, Routes } from 'react-router-dom';
+import SignUp from './Screens/SignUp';
 // import Pract from './Components/Pract';
 // import UpdateButton from "./Assets"
 
@@ -62,6 +63,7 @@ bool ==="nadeem" ? <h1>papa</h1>
   <Route path='/todo' element={<Todo/>}></Route>
   <Route path='/login' element={<Login/>}></Route>
   <Route path='/about' element={<About/>}></Route>
+  <Route path='/signup' element={<SignUp  />}></Route>
 </Routes>
 {/* <Login/>
 <About/> */}
