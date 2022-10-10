@@ -13,6 +13,7 @@ function Login() {
 
       .then((resolve)=>{
         console.log(resolve,"resolve");
+        localStorage.setItem("uid",resolve.user.uid);
       })
       .catch((error)=>{
         console.log(error,"error");

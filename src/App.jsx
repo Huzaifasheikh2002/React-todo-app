@@ -9,6 +9,7 @@ import Login from './Screens/Login';
 import About from './Screens/About';
 import { Route, Routes } from 'react-router-dom';
 import SignUp from './Screens/SignUp';
+import ProtectedRoute from './ProtectedRoute';
 // import Pract from './Components/Pract';
 // import UpdateButton from "./Assets"
 
@@ -59,6 +60,8 @@ bool ==="nadeem" ? <h1>papa</h1>
 </div> */}
 {/* <Todo/> */}
 <Routes>
+
+<Route element={ProtectedRoute}></Route>
 
   <Route path='/todo' element={<Todo/>}></Route>
   <Route path='/login' element={<Login/>}></Route>
