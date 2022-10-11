@@ -6,7 +6,7 @@ import AlertComponet from './Components/Alert-Componets';
 import Todo from './Components/Todo';
 import Home from "./Screens/Home"
 import Login from './Screens/Login';
-import About from './Screens/About';
+import About from "./Screens/About";
 import { Route, Routes } from 'react-router-dom';
 import SignUp from './Screens/SignUp';
 import ProtectedRoute from './ProtectedRoute';
@@ -60,13 +60,13 @@ bool ==="nadeem" ? <h1>papa</h1>
 </div> */}
 {/* <Todo/> */}
 <Routes>
-
-<Route element={ProtectedRoute}></Route>
-
-  <Route path='/todo' element={<Todo/>}></Route>
-  <Route path='/login' element={<Login/>}></Route>
-  <Route path='/about' element={<About/>}></Route>
-  <Route path='/signup' element={<SignUp  />}></Route>
+<Route path="/" element={<Login/>}></Route> 
+  <Route path='/signup' element={<SignUp />}></Route>
+      
+      <Route element={<ProtectedRoute/>}>
+          <Route path="/todo" element={<Todo/>}></Route>
+          <Route path="/about" element={<h1>About Page</h1>}></Route>
+      </Route>
 </Routes>
 {/* <Login/>
 <About/> */}

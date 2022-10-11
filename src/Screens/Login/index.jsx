@@ -1,19 +1,31 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import {auth} from '../../firebase';
 function Login() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const user = localStorage.getItem("uid")
+ 
+const navigate =useNavigate();
+
+useEffect(()=>{
+if(user){
+navigate("/todo")
+}
+},[]);
+
 
   const loginHandler =(e)=>{
       e.preventDefault();
       signInWithEmailAndPassword(auth,email,password)
 
-      .then((resolve)=>{
+      .then(async(resolve)=>{
         console.log(resolve,"resolve");
         localStorage.setItem("uid",resolve.user.uid);
+        navigate("/todo");
       })
       .catch((error)=>{
         console.log(error,"error");

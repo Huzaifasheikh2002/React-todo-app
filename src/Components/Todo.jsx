@@ -6,6 +6,8 @@ import Update from '../Components/Assets/updateIcon.png'
 
 import {db} from "../firebase"
 import { collection, addDoc ,getDocs,doc,updateDoc, deleteDoc } from "firebase/firestore"; 
+import { useNavigate } from "react-router-dom";
+
 
 const Todo = () => {
   const [todoItem, setTodoItem] = useState([]);
@@ -14,10 +16,20 @@ const Todo = () => {
   const [updateInput, setUpdateInput] = useState("");
   const [event, setevent] = useState("all");
   const [borderval, setborderval] = useState("none")
-  const [refresh, setRefresh] = useState(false)
+  const [refresh, setRefresh] = useState(false);
 
 // CREATE COLLECTION
 const dbCollection = collection(db,"todoCollection")
+
+
+const navigate = useNavigate();
+const user = localStorage.getItem("uid");
+// useEffect(()=>{
+//   if(!user){
+//     navigate("/");
+//   }
+// },[]);
+
 
 useEffect(()=>{
 async function getData(){  
