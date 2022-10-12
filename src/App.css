@@ -2,20 +2,17 @@
   margin:0px;
   padding:0px;
   box-sizing: border-box;
-
   
 }
 body{
   background-image: url(./Components/Assets/Background.jpg);
   background-size: cover;
-  height: 100vh;
   background-repeat: no-repeat;
 }
-/* .box1{
-  min-height: 100vh;
-  background-color: #003489;
-} */
-
+.container{
+  color: white;
+  height: 100vh;
+}
 .Main-Container{
   background: rgba(255, 255, 255, 0.191);
   max-width: 800px;
@@ -76,7 +73,4 @@ height: 60px;
 }
 .icon{
  cursor: pointer;
-}
-.container{
-  color: white;
 }

@@ -51,9 +51,10 @@ getData();
 },[refresh]);
   // console.log(db,"dbcollection");
   const addTodo = async () => {
-    if(!inputValue){
-    setborderval("1px solid red")
-    }
+    if (!inputValue)
+    setborderval("3px solid red")
+    else if (inputValue.length > 12) { 
+       }
     else{
       const obj={  
         todoValue:inputValue,
@@ -64,6 +65,7 @@ getData();
         todoItem.push({value:inputValue});
         setTodoItem([...todoItem]);
         setInputValue("");
+     
       }};
   // console.log(inputValue,"inputValueee");
 
@@ -109,10 +111,23 @@ const dbRef=doc(db,"todoCollection",id)
     setUpdateInput(todoItem[index].value);
 
   };
+  const logoutHandler =()=>{
+    localStorage.removeItem("uid")
+  navigate("/")
+  };
   //      
-  return (
+  return (<>
+
+
+    <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+    <h3>Todo App List</h3>
+    <button className="btn btn-danger" onClick={logoutHandler}>
+      LOGOUT
+    </button>
+  </div>
+
     <section className="Main-Container">
-      <h1>Todo App List</h1>
+ 
       <div className="mt-5 px-4">
         <div className="inputDiv">
 
@@ -182,7 +197,7 @@ const dbRef=doc(db,"todoCollection",id)
         })}
       </section>
     </section>
-  );
+    </>);
 
 };
 

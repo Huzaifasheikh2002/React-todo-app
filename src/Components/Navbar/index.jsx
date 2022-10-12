@@ -4,7 +4,6 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 
-
 function NavBarComp() {
   return (
     <>

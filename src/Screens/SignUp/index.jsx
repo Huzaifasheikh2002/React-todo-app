@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,28 +7,41 @@ import {auth,db} from '../../firebase';
 // import {db} from "../firebase"
 import { collection, addDoc, } from "firebase/firestore"; 
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
+import { doc, setDoc } from "firebase/firestore"; 
 
 
 const SignUp = () => {
   const [fullname,setfullname]=useState("")
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const navigate = useNavigate()
+  const user = localStorage.getItem("uid")
 
-  const navigate =useNavigate()
+  useEffect(() => {
+
+  if (user)  {
+    navigate("/todo")
+  }
+}, []);
+
 
 const signupHandler= (e)=>{
   e.preventDefault();
   console.log("submit");
   const dbCollection = collection(db,"users")
+ 
+  
   createUserWithEmailAndPassword(auth,email,password)
 .then (async(resolve)=>{
 console.log(resolve,"resolve");
 const obj={
   fullname,
   email,
+  uid:resolve.user.uid 
 };
-await addDoc(dbCollection,obj);
-navigate("/")
+await setDoc(doc(db,"users",resolve.user.uid),obj);
+navigate("/");
 
 })
 .catch(error=>{
@@ -36,7 +49,8 @@ navigate("/")
 })
 };
   return (
-    <section className='container mt-5' >
+    <>
+    <section className='container mt-5'>
     <h1>SignUp</h1>
     <Form onSubmit={signupHandler}>
       
@@ -71,7 +85,7 @@ type="text" placeholder="Full Name" />
     </Button>
   </Form>
   </section>
-  )
+   </>)
 }
 
 export default SignUp

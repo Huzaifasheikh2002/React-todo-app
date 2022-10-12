@@ -4,12 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import {auth} from '../../firebase';
+
 function Login() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const user = localStorage.getItem("uid")
- 
-const navigate =useNavigate();
+  const navigate = useNavigate();
 
 useEffect(()=>{
 if(user){
@@ -33,6 +33,7 @@ navigate("/todo")
 
   }
   return (
+    <section className='container mt-5'>
     <Form onSubmit={loginHandler}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -54,6 +55,7 @@ navigate("/todo")
         Submit
       </Button>
     </Form>
+    </section>
   );
 }
 

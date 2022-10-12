@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //1st step router dom connectivity
-import { BrowserRouter } from "react-router-dom"; 
+import { BrowserRouter } from "react-router-dom";
 //
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 //2 step router dom connectivity
     <BrowserRouter>
+
+
     <App />
     </BrowserRouter>
 //2 step router dom connectivity

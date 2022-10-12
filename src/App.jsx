@@ -10,11 +10,10 @@ import About from "./Screens/About";
 import { Route, Routes } from 'react-router-dom';
 import SignUp from './Screens/SignUp';
 import ProtectedRoute from './ProtectedRoute';
-// import Pract from './Components/Pract';
-// import UpdateButton from "./Assets"
 
 
 const App = ()=> {
+  
 //   const[name,setName]=useState("huzi");
 //   const[name2,setName2]=useState("node");
 //   const[AppchildData,setChildData]=useState("");
@@ -59,6 +58,10 @@ bool ==="nadeem" ? <h1>papa</h1>
 
 </div> */}
 {/* <Todo/> */}
+
+
+    
+    
 <Routes>
 <Route path="/" element={<Login/>}></Route> 
   <Route path='/signup' element={<SignUp />}></Route>
