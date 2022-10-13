@@ -74,3 +74,10 @@ height: 60px;
 .icon{
  cursor: pointer;
 }
+
+.SignUpBtn{
+  margin: 20px;
+}
+.LoginBtn{
+  margin: 20px;
+}
