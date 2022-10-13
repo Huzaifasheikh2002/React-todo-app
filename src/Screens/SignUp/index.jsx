@@ -12,9 +12,14 @@ import { doc, setDoc } from "firebase/firestore";
 
 
 const SignUp = () => {
+  // const [firstname,setFirstname]=useState("")
   const [fullname,setfullname]=useState("")
+  // const [lastname,setLastname]=useState("")
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const [age,setAge]=useState("")
+  const [contact,setContact]=useState("")
+
   const navigate = useNavigate()
   const user = localStorage.getItem("uid")
 

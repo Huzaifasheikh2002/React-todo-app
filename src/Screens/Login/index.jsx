@@ -33,7 +33,13 @@ navigate("/todo")
 
   }
   return (
+    <>
+    <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+    <h3>Todo App List</h3>
+    </div>
     <section className='container mt-5'>
+    <h1>Log in</h1>
+      
     <Form onSubmit={loginHandler}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -52,11 +58,11 @@ navigate("/todo")
               placeholder="Password" />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
-      </Button>
+       Log in
+      </Button>    
     </Form>
     </section>
-  );
+    </>);
 }
 
 export default Login;
