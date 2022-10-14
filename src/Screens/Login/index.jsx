@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import {auth} from '../../firebase';
 
-
 function Login() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
