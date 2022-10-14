@@ -18,7 +18,6 @@ const SignUp = () =>  {
   // const [lastname,setLastname]=useState("")
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
-  const [age,setAge]=useState("")
   const [phoneNumber,setphoneNumber ]=useState("")
 
   const navigate = useNavigate()
