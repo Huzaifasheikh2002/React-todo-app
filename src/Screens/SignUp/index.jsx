@@ -113,8 +113,8 @@ type="text" placeholder="Full Name" />
         Sign Up
     </Button>
 
-    {/* <LoginButton onClick={Log}
-    // 
+    {/* <LoginButton 
+  
     /> */}
     <Button 
     className="LoginBtn"
@@ -122,6 +122,7 @@ type="text" placeholder="Full Name" />
         Log In
     </Button>
   </Form>
+  
   </section>
             </section>
    </>)

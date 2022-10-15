@@ -7,6 +7,7 @@ import Update from '../Components/Assets/updateIcon.png'
 import {db} from "../firebase"
 import { collection, addDoc ,getDocs,doc,updateDoc, deleteDoc } from "firebase/firestore"; 
 import { useNavigate } from "react-router-dom";
+// import LoginButton from "./LoginButton";
 
 
 const Todo = () => {
@@ -118,11 +119,11 @@ const dbRef=doc(db,"todoCollection",id)
   //      
   return (<>
 
-<section className="Background">
+<section ClassName="Background">
     <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
     <h3>Todo App List</h3>
     <button className="btn btn-danger" onClick={logoutHandler}>
-      LOGOUT
+      Log Out
     </button>
   </div>
 
@@ -168,15 +169,15 @@ const dbRef=doc(db,"todoCollection",id)
                   </div>
 
               ) : (
-                <div className= "alertTodo alert alert-primary d-flex justify-content-between f-10">
-                  {todo.value}
-                  <div className="d-flex gap-2" >
-                    <FaTrashAlt
+    <div className= "alertTodo alert alert-primary d-flex justify-content-between f-10">
 
-                      className="icon"
-                      onClick={() => deleteTodo(index)}
-                      size={45}
-                    />
+          {todo.value}
+      <div className="d-flex gap-2" >
+            <FaTrashAlt
+     className="icon"
+              onClick={() => deleteTodo(index)}
+              size={45}
+        />
                     <FaEdit
                       className="icon"
                       onClick={
@@ -197,7 +198,7 @@ const dbRef=doc(db,"todoCollection",id)
         })}
       </section>
     </section>
-    </section>
+                </section>
     </>);
 
 };

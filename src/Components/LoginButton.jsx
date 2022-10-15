@@ -1,11 +1,11 @@
-// import React from 'react'
+import React from 'react'
 
 
-// const LoginButton = () => {
-//   return (
-// <button 
-// className='LogInBtn btn btn-primary'>Log In</button>
-//   )
-// }
+const LoginButton = () => {
+  return (
+<button 
+className='LogInBtn btn btn-primary'>Log In button</button>
+  )
+}
 
-// export default LoginButton;
+export default LoginButton;
