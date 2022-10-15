@@ -53,8 +53,6 @@ getData();
   const addTodo = async () => {
     if (!inputValue)
     setborderval("3px solid red")
-    else if (inputValue.length > 12) { 
-       }
     else{
       const obj={  
         todoValue:inputValue,
@@ -65,6 +63,8 @@ getData();
         todoItem.push({value:inputValue});
         setTodoItem([...todoItem]);
         setInputValue("");
+        setborderval("")
+
      
       }};
   // console.log(inputValue,"inputValueee");
@@ -118,7 +118,7 @@ const dbRef=doc(db,"todoCollection",id)
   //      
   return (<>
 
-
+<section className="Background">
     <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
     <h3>Todo App List</h3>
     <button className="btn btn-danger" onClick={logoutHandler}>
@@ -196,6 +196,7 @@ const dbRef=doc(db,"todoCollection",id)
           );
         })}
       </section>
+    </section>
     </section>
     </>);
 

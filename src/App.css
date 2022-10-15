@@ -13,6 +13,9 @@ body{
   color: white;
   height: 100vh;
 }
+/* .Background{
+  height: 100%;
+} */
 .Main-Container{
   background: rgba(255, 255, 255, 0.191);
   max-width: 800px;
@@ -29,6 +32,9 @@ background-color: ;
 .alertTodo{
   font-size: 23px;
   margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .Main-Container .inputDiv{
   margin: 20px 0;

@@ -66,6 +66,7 @@ const Login_Button =()=>{
         <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
        <h3>Todo App List</h3>
     </div>
+  <section className='header'>
     <section className='container mt-5'>
     <h1>SignUp</h1>
     <Form onSubmit={signupHandler}>
@@ -122,6 +123,7 @@ type="text" placeholder="Full Name" />
     </Button>
   </Form>
   </section>
+            </section>
    </>)
 }
 
