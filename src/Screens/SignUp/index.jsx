@@ -14,7 +14,8 @@ import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
   // const [firstname,setFirstname]=useState("")
-  const [fullname, setfullname] = useState("")
+  const [firstname, setfirstname] = useState("")
+  const [lastname, setlastname] = useState("")
   // const [lastname,setLastname]=useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -22,6 +23,7 @@ const SignUp = () => {
 
   const navigate = useNavigate()
   const user = localStorage.getItem("uid")
+
 
   useEffect(() => {
 
@@ -37,18 +39,19 @@ const SignUp = () => {
     console.log("submit");
       const dbCollection = collection(db,"users")
 
-    createUserWithEmailAndPassword(auth,email,password)
+    createUserWithEmailAndPassword(auth,email,password,)
     .then (async(resolve)=>{
     console.log(resolve,"resolve");
     const obj={
-    fullname,
+    firstname,
+    lastname,
     phoneNumber,
     email,
     uid:resolve.user.uid,
-
   };
   console.log("obj" , obj)
   await setDoc(doc(db, "users", resolve.user.uid), obj);
+  // await setDoc(doc(db, "users", resolve.user.phoneNumber), obj);
   navigate("/");
 
 })
@@ -73,14 +76,25 @@ return (
         <Form onSubmit={signupHandler}>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Full Name</Form.Label>
+            <Form.Label>First Name</Form.Label>
             <Form.Control onChange={(e) => {
-              setfullname(e.target.value);
+              setfirstname(e.target.value);
             }}
 
-              type="text" placeholder="Full Name" />
+              type="text" placeholder="First Name" />
           </Form.Group>
           {/*  */}
+
+          <Form.Group className="mb-3" controlId="formBasicNumber">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              // for="typePhone" 
+              type="text"
+              onChange={(e) => {
+                setlastname(e.target.value);
+              }}
+              placeholder="Enter last Name" />
+          </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>
@@ -101,25 +115,23 @@ return (
               placeholder="Password" />
           </Form.Group>
 
-          {/*  */}
-
           <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              // for="typePhone" 
               type="number"
               onChange={(e) => {
                 setphoneNumber(e.target.value);
               }}
               placeholder="Phone Number" />
           </Form.Group>
+     
 
           <Button variant="primary" type="submit">
             Sign Up
           </Button>
 
           {/* <LoginButton 
-  
+
     /> */}
           <Button
             className="LoginBtn"
