@@ -11,8 +11,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 //2 step router dom connectivity
     <BrowserRouter>
-
-
     <App />
     </BrowserRouter>
 //2 step router dom connectivity

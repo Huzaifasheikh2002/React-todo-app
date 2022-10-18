@@ -7,9 +7,10 @@ import Todo from './Components/Todo';
 import Home from "./Screens/Home"
 import Login from './Screens/Login';
 import About from "./Screens/About";
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import SignUp from './Screens/SignUp';
 import ProtectedRoute from './ProtectedRoute';
+import User from './Components/User/User';
 
 
 const App = ()=> {
@@ -62,14 +63,27 @@ bool ==="nadeem" ? <h1>papa</h1>
 
     
     
-<Routes>
-<Route path="/" element={<Login/>}></Route> 
-  <Route path='/signup' element={<SignUp />}></Route>
+{/* <Routes>
+<Route index element={<Login/>}></Route> 
+
+  <Route path='/signup'element={<SignUp />}></Route>
       
       <Route element={<ProtectedRoute/>}>
           <Route path="/todo" element={<Todo/>}></Route>
           <Route path="/about" element={<h1>About Page</h1>}></Route>
       </Route>
+</Routes> */}
+{/* Redux class work start */}
+
+<Link to="/">Home Page</Link>
+<Link to="/about">About Us</Link>
+<Link to="/user">User Page</Link>
+
+<Routes>
+  <Route path="/" element={<h1>Home</h1>}></Route>
+  <Route path="/about" element={<h1>About</h1>}></Route>
+  <Route path='/user/:id'element={<User />}></Route>
+
 </Routes>
 {/* <Login/>
 <About/> */}
