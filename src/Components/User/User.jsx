@@ -1,13 +1,13 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
 
 const User = () => {
-  const params = useParams();
-  console.log("aa");
+  const {name}  = useParams();
+  console.log(name, "names");
 
   return (<>
-  <div>User Comp</div>
+  <div> {name}</div>
   </>)
 };
 
-export default User; 
+export default User;
