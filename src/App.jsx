@@ -11,6 +11,9 @@ import { Link, Route, Routes } from 'react-router-dom';
 import SignUp from './Screens/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import User from './Components/User/User';
+// import EStoreWebsite from './Components/EStoreWebsite';
+
+
 
 
 const App = ()=> {
@@ -60,40 +63,40 @@ bool ==="nadeem" ? <h1>papa</h1>
 </div> */}
 {/* <Todo/> */}
 
-
-    
-    
- {/* <Routes>
+    {/* main todo jisme login signup hai */}
+ { <Routes>
 <Route index element={<Login/>}></Route> 
 
-  <Route path='/signup'element={<SignUp />}></Route>
-      
+      <Route path='/signup'element={<SignUp />}></Route>  
       <Route element={<ProtectedRoute/>}>
           <Route path="/todo" element={<Todo/>}></Route>
+
           <Route path="/about" element={<h1>About Page</h1>}></Route>
       </Route>
-</Routes>  */}
+</Routes> }
+    {/* End main todo jisme login signup hai */}
+
 {/* Redux class work start */}
 
-<Link to="/">Home Page</Link>
+{/* <Link to="/">Home Page</Link>
 <Link to="/about">About Us</Link>
 <Link to="/user">User Page</Link>
 
 <Routes>
   <Route path="/" element={<h1>Home</h1>}/>
-  <Route path="/about" element={<h1>About</h1>}/>
+  <Route path="/about" element={<h1>About</h1>}/> */}
   {/* <Route path='/user/getuser/:name'element={<User />}/> */}
 
-
+{/* 
     <Route path="/user">
           <Route path="getuser" element={<h1>GET USER</h1>} />
           <Route path="profile" element={<h1>user profile</h1>} />
         </Route>
 
     <Route path='*' element={<h1>404 PAGE NOT FOUND</h1>}/>
-</Routes>
+</Routes> }
 {/* <Login/>
-<About/> */}
+<About/> }
 
 
 {/* <Pract/> */}
