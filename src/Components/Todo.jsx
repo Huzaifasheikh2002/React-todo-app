@@ -113,18 +113,18 @@ const dbRef=doc(db,"todoCollection",id)
 
   };
   const logoutHandler =()=>{
-    localStorage.removeItem("uid")
-  navigate("/")
+    // localStorage.removeItem("uid")
+  navigate("/login")
   };
   //      
   return (<>
 
-<section ClassName="Background">
+<section className="Background">
     <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
     <h3>Todo App List</h3>
-    <button className="btn btn-danger" onClick={logoutHandler}>
+    {/* <button className="btn btn-danger" onClick={logoutHandler}>
       Log Out
-    </button>
+    </button> */}
   </div>
 
     <section className="Main-Container">
