@@ -11,7 +11,7 @@ const logoutHandler =()=>{
   return (
 
     <div className="bg-dark text-white d-flex align-items-center justify-content-between p-3">
-    <h3>huaifaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+    <h3>huaifaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
     <button className="btn btn-danger" onClick={logoutHandler}>
       Log Out
     </button>
